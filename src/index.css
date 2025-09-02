@@ -1,0 +1,265 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 220 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
+
+    --primary: 348 83% 47%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 15% 15%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 8% 46%;
+
+    --accent: 220 14% 96%;
+    --accent-foreground: 220 15% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 348 83% 47%;
+
+    --radius: 0.75rem;
+
+    /* Earthquake magnitude colors */
+    --earthquake-major: 0 84% 60%;        /* 7.0+ Major - Deep Red */
+    --earthquake-strong: 22 90% 52%;      /* 6.0-6.9 Strong - Orange Red */
+    --earthquake-moderate: 35 91% 52%;    /* 5.0-5.9 Moderate - Orange */
+    --earthquake-light: 52 98% 52%;       /* 4.0-4.9 Light - Yellow */
+    --earthquake-minor: 81 100% 45%;      /* 3.0-3.9 Minor - Yellow Green */
+    --earthquake-micro: 142 71% 45%;      /* <3.0 Micro - Green */
+
+    /* Map colors */
+    --map-background: 210 40% 98%;
+    --map-grid: 220 13% 91%;
+    --map-continent: 220 8% 46%;
+    --map-overlay: 220 15% 15%;
+
+    /* Status colors */
+    --status-success: 142 71% 45%;
+    --status-warning: 35 91% 52%;
+    --status-error: 0 84% 60%;
+    --status-info: 221 83% 53%;
+
+    /* Gradients */
+    --gradient-seismic: linear-gradient(135deg, hsl(348 83% 47%), hsl(22 90% 52%));
+    --gradient-map: linear-gradient(135deg, hsl(210 40% 98%), hsl(221 83% 95%));
+    --gradient-hero: linear-gradient(135deg, hsl(348 83% 47%), hsl(35 91% 52%));
+
+    /* Shadows */
+    --shadow-earthquake: 0 4px 20px hsl(348 83% 47% / 0.25);
+    --shadow-card: 0 4px 12px hsl(220 15% 15% / 0.08);
+    --shadow-map: inset 0 2px 8px hsl(220 15% 15% / 0.05);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 13% 9%;
+    --foreground: 220 14% 95%;
+
+    --card: 220 13% 9%;
+    --card-foreground: 220 14% 95%;
+
+    --popover: 220 13% 9%;
+    --popover-foreground: 220 14% 95%;
+
+    --primary: 348 83% 47%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 220 13% 14%;
+    --secondary-foreground: 220 14% 95%;
+
+    --muted: 220 13% 14%;
+    --muted-foreground: 220 8% 65%;
+
+    --accent: 220 13% 14%;
+    --accent-foreground: 220 14% 95%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 13% 14%;
+    --input: 220 13% 14%;
+    --ring: 348 83% 47%;
+
+    /* Earthquake magnitude colors (same for dark) */
+    --earthquake-major: 0 84% 60%;
+    --earthquake-strong: 22 90% 52%;
+    --earthquake-moderate: 35 91% 52%;
+    --earthquake-light: 52 98% 52%;
+    --earthquake-minor: 81 100% 45%;
+    --earthquake-micro: 142 71% 45%;
+
+    /* Map colors for dark mode */
+    --map-background: 220 13% 9%;
+    --map-grid: 220 13% 20%;
+    --map-continent: 220 8% 65%;
+    --map-overlay: 220 14% 95%;
+
+    /* Gradients for dark mode */
+    --gradient-seismic: linear-gradient(135deg, hsl(348 83% 47%), hsl(22 90% 52%));
+    --gradient-map: linear-gradient(135deg, hsl(220 13% 9%), hsl(220 13% 14%));
+    --gradient-hero: linear-gradient(135deg, hsl(348 83% 47%), hsl(35 91% 52%));
+
+    /* Shadows for dark mode */
+    --shadow-earthquake: 0 4px 20px hsl(348 83% 47% / 0.35);
+    --shadow-card: 0 4px 12px hsl(220 13% 5% / 0.25);
+    --shadow-map: inset 0 2px 8px hsl(220 13% 5% / 0.15);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Earthquake visualizer specific animations */
+  .earthquake-marker {
+    transition: var(--transition-smooth);
+    filter: drop-shadow(0 2px 4px hsl(var(--foreground) / 0.1));
+  }
+
+  .earthquake-marker:hover {
+    filter: drop-shadow(var(--shadow-earthquake));
+  }
+
+  .animate-pulse-ring {
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .slider {
+    background: linear-gradient(to right, 
+      hsl(var(--earthquake-micro)), 
+      hsl(var(--earthquake-minor)), 
+      hsl(var(--earthquake-light)), 
+      hsl(var(--earthquake-moderate)), 
+      hsl(var(--earthquake-strong)), 
+      hsl(var(--earthquake-major))
+    );
+    height: 8px;
+    border-radius: 4px;
+    outline: none;
+    -webkit-appearance: none;
+  }
+
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: hsl(var(--primary));
+    cursor: pointer;
+    border: 2px solid hsl(var(--background));
+    box-shadow: var(--shadow-card);
+  }
+
+  .slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: hsl(var(--primary));
+    cursor: pointer;
+    border: 2px solid hsl(var(--background));
+    box-shadow: var(--shadow-card);
+  }
+}
+
+@layer utilities {
+  .text-gradient-seismic {
+    background: var(--gradient-seismic);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-map {
+    background: var(--gradient-map);
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .shadow-earthquake {
+    box-shadow: var(--shadow-earthquake);
+  }
+
+  .shadow-map {
+    box-shadow: var(--shadow-map);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(1.4);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
